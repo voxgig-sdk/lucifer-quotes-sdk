@@ -1,0 +1,34 @@
+{
+  "existing": {
+    "quote": {
+      "QUOTE00": {
+        "author": "s28",
+        "episode": "s29",
+        "quote": "s2a",
+        "season": "s2b"
+      },
+      "QUOTE01": {
+        "author": "s50",
+        "episode": "s51",
+        "quote": "s52",
+        "season": "s53"
+      },
+      "QUOTE02": {
+        "author": "s78",
+        "episode": "s79",
+        "quote": "s7a",
+        "season": "s7b"
+      }
+    }
+  },
+  "new": {
+    "quote": {
+      "quote_ref01": {
+        "author": "sa0",
+        "episode": "sa1",
+        "quote": "sa2",
+        "season": "sa3"
+      }
+    }
+  }
+}

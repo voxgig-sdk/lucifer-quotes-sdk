@@ -1,0 +1,70 @@
+# Entity: quote
+
+main: kit: entity: quote: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "author"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "episode"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "quote"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "season"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "quote"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "number"
+                orig: "number"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/quotes"
+          parts: [
+            "api"
+            "quotes"
+          ]
+          select: {
+            exist: [
+              "number"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

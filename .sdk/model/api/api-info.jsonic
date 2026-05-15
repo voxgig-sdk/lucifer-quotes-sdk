@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "API Documentation"
+        url: "https://lucifer-quotes.vercel.app/"
+      }
+      description: "This API provides random quotes from the character Lucifer Morningstar and other show characters. You can retrieve a single quote or multiple quotes by specifying a number in the API request."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://lucifer-quotes.vercel.app"
+        }
+      ]
+      title: "Lucifer Quotes API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

@@ -1,0 +1,171 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Lucifer Quotes API",
+    "description": "This API provides random quotes from the character Lucifer Morningstar and other show characters. You can retrieve a single quote or multiple quotes by specifying a number in the API request.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "API Documentation",
+      "url": "https://lucifer-quotes.vercel.app/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://lucifer-quotes.vercel.app",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api/quotes": {
+      "get": {
+        "summary": "Get random quotes",
+        "description": "Retrieve one or more random quotes from Lucifer Morningstar and other show characters. If no number is specified, returns a single quote.",
+        "operationId": "getQuotes",
+        "tags": [
+          "Quotes"
+        ],
+        "parameters": [
+          {
+            "name": "number",
+            "in": "query",
+            "description": "The number of random quotes to retrieve",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with quote(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/SingleQuote"
+                    },
+                    {
+                      "$ref": "#/components/schemas/MultipleQuotes"
+                    }
+                  ]
+                },
+                "examples": {
+                  "singleQuote": {
+                    "summary": "Single quote response",
+                    "value": {
+                      "quote": "I'm like walking heroin. Very habit forming. It never ends well.",
+                      "author": "Lucifer Morningstar",
+                      "season": "1",
+                      "episode": "1"
+                    }
+                  },
+                  "multipleQuotes": {
+                    "summary": "Multiple quotes response",
+                    "value": [
+                      {
+                        "quote": "I'm like walking heroin. Very habit forming. It never ends well.",
+                        "author": "Lucifer Morningstar",
+                        "season": "1",
+                        "episode": "1"
+                      },
+                      {
+                        "quote": "Detective! What a lovely surprise.",
+                        "author": "Lucifer Morningstar",
+                        "season": "1",
+                        "episode": "2"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Quote": {
+        "type": "object",
+        "properties": {
+          "quote": {
+            "type": "string",
+            "description": "The quote text"
+          },
+          "author": {
+            "type": "string",
+            "description": "The character who said the quote"
+          },
+          "season": {
+            "type": "string",
+            "description": "The season number where the quote appears"
+          },
+          "episode": {
+            "type": "string",
+            "description": "The episode number where the quote appears"
+          }
+        },
+        "required": [
+          "quote",
+          "author"
+        ]
+      },
+      "SingleQuote": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Quote"
+          }
+        ]
+      },
+      "MultipleQuotes": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Quote"
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "message": {
+            "type": "string",
+            "description": "Detailed error description"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Quotes",
+      "description": "Operations related to retrieving Lucifer quotes"
+    }
+  ]
+}
