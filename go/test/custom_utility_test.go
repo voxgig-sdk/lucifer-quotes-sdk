@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/lucifer-quotes-sdk"
+	sdk "github.com/voxgig-sdk/lucifer-quotes-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

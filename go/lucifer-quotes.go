@@ -1,10 +1,10 @@
 package voxgigluciferquotessdk
 
 import (
-	"github.com/voxgig-sdk/lucifer-quotes-sdk/core"
-	"github.com/voxgig-sdk/lucifer-quotes-sdk/entity"
-	"github.com/voxgig-sdk/lucifer-quotes-sdk/feature"
-	_ "github.com/voxgig-sdk/lucifer-quotes-sdk/utility"
+	"github.com/voxgig-sdk/lucifer-quotes-sdk/go/core"
+	"github.com/voxgig-sdk/lucifer-quotes-sdk/go/entity"
+	"github.com/voxgig-sdk/lucifer-quotes-sdk/go/feature"
+	_ "github.com/voxgig-sdk/lucifer-quotes-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

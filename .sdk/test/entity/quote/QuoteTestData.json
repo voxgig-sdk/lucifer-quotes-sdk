@@ -5,19 +5,22 @@
         "author": "s28",
         "episode": "s29",
         "quote": "s2a",
-        "season": "s2b"
+        "season": "s2b",
+        "id": "QUOTE00"
       },
       "QUOTE01": {
         "author": "s50",
         "episode": "s51",
         "quote": "s52",
-        "season": "s53"
+        "season": "s53",
+        "id": "QUOTE01"
       },
       "QUOTE02": {
         "author": "s78",
         "episode": "s79",
         "quote": "s7a",
-        "season": "s7b"
+        "season": "s7b",
+        "id": "QUOTE02"
       }
     }
   },

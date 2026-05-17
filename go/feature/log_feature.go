@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/lucifer-quotes-sdk/core"
+	"github.com/voxgig-sdk/lucifer-quotes-sdk/go/core"
 )
 
 type LogFeature struct {
