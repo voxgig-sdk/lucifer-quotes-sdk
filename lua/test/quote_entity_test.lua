@@ -91,7 +91,6 @@ function quote_basic_setup(extra)
     ["LUCIFERQUOTES_TEST_QUOTE_ENTID"] = idmap,
     ["LUCIFERQUOTES_TEST_LIVE"] = "FALSE",
     ["LUCIFERQUOTES_TEST_EXPLAIN"] = "FALSE",
-    ["LUCIFERQUOTES_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ function quote_basic_setup(extra)
   if env["LUCIFERQUOTES_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["LUCIFERQUOTES_APIKEY"],
       },
       extra or {},
     })

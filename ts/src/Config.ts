@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://lucifer-quotes.vercel.app',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },

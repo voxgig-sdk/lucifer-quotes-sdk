@@ -17,8 +17,26 @@ main: {
       ]
       title: "Lucifer Quotes API"
       version: "1.0.0"
+      tagline: "Random quotes from characters in the TV series Lucifer, with English and French support"
+      homepage: "https://lucifer-quotes.vercel.app"
+      docs_url: "https://luciferquotes.shadowdev.xyz/"
+      license_short: "MIT License"
+      license_md: `- Licensed under the MIT License via the source repository at [shadowoff09/lucifer-quotes](https://github.com/shadowoff09/lucifer-quotes).
+- No authentication or API key required; CORS is enabled for browser access.
+- Quotes are from the TV series Lucifer and remain the property of their respective rights holders; this SDK only relays data returned by the upstream API.`
+      about_md: `The Lucifer Quotes API is a small REST service that returns quotes spoken by characters in the TV series *Lucifer*. It is maintained by [@shadowoff09](https://github.com/shadowoff09) with multilingual contributions from [@Malicaeus](https://github.com/malicaeus), and is hosted on Vercel at \`https://lucifer-quotes.vercel.app\`.
+
+What you get from the API:
+
+- A single random quote, or an array of N random quotes.
+- Each quote object has a \`quote\` string and an \`author\` string (character name).
+- Optional language selector for English (\`en\`) or French (\`fr\`); falls back to English when a translation is unavailable.
+
+The API is open access — no key, no signup — and is documented as CORS-enabled, making it usable directly from browser clients. The dataset is small (around 78 English quotes at last count) and ships as part of the open-source repository linked above.`
+      entity_desc: {
+        quote: "A line of dialogue from a Lucifer character, returned as an object with `quote` and `author` fields. Fetch one via `GET /api/quotes` or `GET /api/{lang}/quotes`, or several via `GET /api/quotes/{number}` or `GET /api/{lang}/quotes/{number}`."
+      }
+      auth: false
     }
   }
-}
-
 }
