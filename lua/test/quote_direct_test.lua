@@ -62,12 +62,14 @@ function quote_direct_setup(mockres)
   local env = runner.env_override({
     ["LUCIFERQUOTES_TEST_QUOTE_ENTID"] = {},
     ["LUCIFERQUOTES_TEST_LIVE"] = "FALSE",
+    ["LUCIFERQUOTES_APIKEY"] = "NONE",
   })
 
   local live = env["LUCIFERQUOTES_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["LUCIFERQUOTES_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

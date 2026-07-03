@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'LUCIFER_QUOTES_TEST_QUOTE_ENTID': idmap,
     'LUCIFER_QUOTES_TEST_LIVE': 'FALSE',
     'LUCIFER_QUOTES_TEST_EXPLAIN': 'FALSE',
+    'LUCIFER_QUOTES_APIKEY': 'NONE',
   })
 
   idmap = env['LUCIFER_QUOTES_TEST_QUOTE_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new LuciferQuotesSDK(merge([
       {
+        apikey: env.LUCIFER_QUOTES_APIKEY,
       },
       extra
     ]))

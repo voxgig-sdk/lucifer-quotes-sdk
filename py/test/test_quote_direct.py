@@ -59,12 +59,14 @@ def _quote_direct_setup(mockres):
     env = runner.env_override({
         "LUCIFERQUOTES_TEST_QUOTE_ENTID": {},
         "LUCIFERQUOTES_TEST_LIVE": "FALSE",
+        "LUCIFERQUOTES_APIKEY": "NONE",
     })
 
     live = env.get("LUCIFERQUOTES_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("LUCIFERQUOTES_APIKEY"),
         }
         client = LuciferQuotesSDK(merged_opts)
         return {

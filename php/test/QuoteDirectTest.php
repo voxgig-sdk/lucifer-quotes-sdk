@@ -67,12 +67,14 @@ function quote_direct_setup($mockres)
     $env = Runner::env_override([
         "LUCIFERQUOTES_TEST_QUOTE_ENTID" => [],
         "LUCIFERQUOTES_TEST_LIVE" => "FALSE",
+        "LUCIFERQUOTES_APIKEY" => "NONE",
     ]);
 
     $live = $env["LUCIFERQUOTES_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["LUCIFERQUOTES_APIKEY"],
         ];
         $client = new LuciferQuotesSDK($merged_opts);
         return [

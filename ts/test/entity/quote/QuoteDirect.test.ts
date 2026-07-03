@@ -74,12 +74,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'LUCIFERQUOTES_TEST_QUOTE_ENTID': {},
     'LUCIFERQUOTES_TEST_LIVE': 'FALSE',
+    'LUCIFERQUOTES_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.LUCIFERQUOTES_TEST_LIVE
 
   if (live) {
     const client = new LuciferQuotesSDK({
+      apikey: env.LUCIFERQUOTES_APIKEY,
     })
 
     let idmap: any = env['LUCIFERQUOTES_TEST_QUOTE_ENTID']

@@ -1,20 +1,8 @@
 # LuciferQuotes SDK
 
-Random quotes from characters in the TV series Lucifer, with English and French support
+Lucifer Quotes API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Lucifer Quotes API
-
-The Lucifer Quotes API is a small REST service that returns quotes spoken by characters in the TV series *Lucifer*. It is maintained by [@shadowoff09](https://github.com/shadowoff09) with multilingual contributions from [@Malicaeus](https://github.com/malicaeus), and is hosted on Vercel at `https://lucifer-quotes.vercel.app`.
-
-What you get from the API:
-
-- A single random quote, or an array of N random quotes.
-- Each quote object has a `quote` string and an `author` string (character name).
-- Optional language selector for English (`en`) or French (`fr`); falls back to English when a translation is unavailable.
-
-The API is open access — no key, no signup — and is documented as CORS-enabled, making it usable directly from browser clients. The dataset is small (around 78 English quotes at last count) and ships as part of the open-source repository linked above.
 
 ## Try it
 
@@ -48,27 +36,31 @@ gem install lucifer-quotes-sdk
 luarocks install lucifer-quotes-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { LuciferQuotesSDK } from 'lucifer-quotes'
 
-const client = new LuciferQuotesSDK({})
+const client = new LuciferQuotesSDK({
+  apikey: process.env.LUCIFER-QUOTES_APIKEY,
+})
 
+// Load quote data
+const quote = await client.Quote().load({})
+console.log(quote.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -98,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Quote** | A line of dialogue from a Lucifer character, returned as an object with `quote` and `author` fields. Fetch one via `GET /api/quotes` or `GET /api/{lang}/quotes`, or several via `GET /api/quotes/{number}` or `GET /api/{lang}/quotes/{number}`. | `/api/quotes` |
+| **Quote** |  | `/api/quotes` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -108,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from luciferquotes_sdk import LuciferQuotesSDK
 
-client = LuciferQuotesSDK({})
+client = LuciferQuotesSDK({
+    "apikey": os.environ.get("LUCIFER-QUOTES_APIKEY"),
+})
 
 
 # Load a specific quote
-quote, err = client.Quote(None).load(
-    {"id": "example_id"}, None
-)
+quote, err = client.Quote().load({"id": "example_id"})
+print(quote)
 ```
 
 ### PHP
@@ -125,13 +119,14 @@ quote, err = client.Quote(None).load(
 <?php
 require_once 'luciferquotes_sdk.php';
 
-$client = new LuciferQuotesSDK([]);
+$client = new LuciferQuotesSDK([
+    "apikey" => getenv("LUCIFER-QUOTES_APIKEY"),
+]);
 
 
 // Load a specific quote
-[$quote, $err] = $client->Quote(null)->load(
-    ["id" => "example_id"], null
-);
+[$quote, $err] = $client->Quote()->load(["id" => "example_id"]);
+print_r($quote);
 ```
 
 ### Golang
@@ -139,8 +134,13 @@ $client = new LuciferQuotesSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/lucifer-quotes-sdk/go"
 
-client := sdk.NewLuciferQuotesSDK(map[string]any{})
+client := sdk.NewLuciferQuotesSDK(map[string]any{
+    "apikey": os.Getenv("LUCIFER-QUOTES_APIKEY"),
+})
 
+// Load quote data
+quote, err := client.Quote(nil).Load(map[string]any{}, nil)
+fmt.Println(quote)
 ```
 
 ### Ruby
@@ -148,13 +148,14 @@ client := sdk.NewLuciferQuotesSDK(map[string]any{})
 ```ruby
 require_relative "LuciferQuotes_sdk"
 
-client = LuciferQuotesSDK.new({})
+client = LuciferQuotesSDK.new({
+  "apikey" => ENV["LUCIFER-QUOTES_APIKEY"],
+})
 
 
 # Load a specific quote
-quote, err = client.Quote(nil).load(
-  { "id" => "example_id" }, nil
-)
+quote, err = client.Quote().load({ "id" => "example_id" })
+puts quote
 ```
 
 ### Lua
@@ -162,13 +163,14 @@ quote, err = client.Quote(nil).load(
 ```lua
 local sdk = require("lucifer-quotes_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("LUCIFER-QUOTES_APIKEY"),
+})
 
 
 -- Load a specific quote
-local quote, err = client:Quote(nil):load(
-  { id = "example_id" }, nil
-)
+local quote, err = client:Quote():load({ id = "example_id" })
+print(quote)
 ```
 
 ## Unit testing in offline mode
@@ -187,25 +189,21 @@ const result = await client.Quote().load({ id: 'test01' })
 ### Python
 
 ```python
-client = LuciferQuotesSDK.test(None, None)
-result, err = client.Quote(None).load(
-    {"id": "test01"}, None
-)
+client = LuciferQuotesSDK.test()
+result, err = client.Quote().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = LuciferQuotesSDK::test(null, null);
-[$result, $err] = $client->Quote(null)->load(
-    ["id" => "test01"], null
-);
+$client = LuciferQuotesSDK::test();
+[$result, $err] = $client->Quote()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Quote(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -214,19 +212,15 @@ result, err := client.Quote(nil).Load(
 ### Ruby
 
 ```ruby
-client = LuciferQuotesSDK.test(nil, nil)
-result, err = client.Quote(nil).load(
-  { "id" => "test01" }, nil
-)
+client = LuciferQuotesSDK.test
+result, err = client.Quote().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Quote(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Quote():load({ id = "test01" })
 ```
 
 ## How it works
@@ -330,15 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Lucifer Quotes API
-
-- Upstream: [https://lucifer-quotes.vercel.app](https://lucifer-quotes.vercel.app)
-- API docs: [https://luciferquotes.shadowdev.xyz/](https://luciferquotes.shadowdev.xyz/)
-
-- Licensed under the MIT License via the source repository at [shadowoff09/lucifer-quotes](https://github.com/shadowoff09/lucifer-quotes).
-- No authentication or API key required; CORS is enabled for browser access.
-- Quotes are from the TV series Lucifer and remain the property of their respective rights holders; this SDK only relays data returned by the upstream API.
 
 ---
 
