@@ -10,13 +10,13 @@ The Ruby SDK for the LuciferQuotes API — an entity-oriented client using idiom
 
 ## Install
 ```bash
-gem install lucifer-quotes-sdk
+gem install voxgig-sdk-lucifer-quotes
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "lucifer-quotes-sdk"
+gem "voxgig-sdk-lucifer-quotes"
 ```
 
 Then run:

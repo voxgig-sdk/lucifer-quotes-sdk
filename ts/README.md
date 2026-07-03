@@ -10,7 +10,7 @@ The TypeScript SDK for the LuciferQuotes API — a type-safe, entity-oriented cl
 
 ## Install
 ```bash
-npm install lucifer-quotes
+npm install @voxgig-sdk/lucifer-quotes
 ```
 ## Tutorial: your first API call
 

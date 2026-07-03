@@ -10,7 +10,7 @@ The PHP SDK for the LuciferQuotes API — an entity-oriented client using PHP co
 
 ## Install
 ```bash
-composer require voxgig/lucifer-quotes-sdk
+composer require voxgig-sdk/lucifer-quotes
 ```
 
 

@@ -1,8 +1,17 @@
 {
   "name": "voxgig-sdk/lucifer-quotes",
-  "description": "LuciferQuotes SDK for PHP",
+  "description": "Unofficial generated PHP SDK for the Lucifer Quotes public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
+  "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "lucifer-quotes"],
+  "homepage": "https://github.com/voxgig-sdk/lucifer-quotes-sdk",
   "license": "MIT",
+  "authors": [
+    { "name": "Voxgig", "homepage": "https://voxgig.com" }
+  ],
+  "support": {
+    "issues": "https://github.com/voxgig-sdk/lucifer-quotes-sdk/issues",
+    "source": "https://github.com/voxgig-sdk/lucifer-quotes-sdk"
+  },
   "minimum-stability": "stable",
   "require": {
     "php": ">=8.2"

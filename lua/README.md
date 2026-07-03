@@ -10,7 +10,7 @@ The Lua SDK for the LuciferQuotes API — an entity-oriented client using Lua co
 
 ## Install
 ```bash
-luarocks install lucifer-quotes-sdk
+luarocks install voxgig-sdk-lucifer-quotes
 ```
 
 If the module is not yet published, add the source directory to

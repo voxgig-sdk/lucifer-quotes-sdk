@@ -10,7 +10,7 @@ The Python SDK for the LuciferQuotes API — an entity-oriented client following
 
 ## Install
 ```bash
-pip install lucifer-quotes-sdk
+pip install voxgig-sdk-lucifer-quotes
 ```
 
 Or install from source:

@@ -8,12 +8,14 @@ source = {
   dir = "lucifer-quotes-sdk/lua"
 }
 description = {
-  summary = "LuciferQuotes SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Lucifer Quotes public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/lucifer-quotes-sdk",
+  issues_url = "https://github.com/voxgig-sdk/lucifer-quotes-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "lucifer-quotes" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {
