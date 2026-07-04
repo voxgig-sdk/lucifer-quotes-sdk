@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## QuoteEntity
 
 ```lua
-local quote = client:quote(nil)
+local quote = client:Quote(nil)
 ```
 
 ### Fields
@@ -102,7 +102,7 @@ local quote = client:quote(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:quote():load({ id = "quote_id" })
+local result, err = client:Quote():load({ id = "quote_id" })
 ```
 
 ### Common Methods

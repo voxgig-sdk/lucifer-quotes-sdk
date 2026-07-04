@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## QuoteEntity
 
 ```php
-$quote = $client->quote();
+$quote = $client->Quote();
 ```
 
 ### Fields
@@ -104,7 +104,7 @@ $quote = $client->quote();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->quote()->load(["id" => "quote_id"]);
+$result = $client->Quote()->load(["id" => "quote_id"]);
 ```
 
 ### Common Methods

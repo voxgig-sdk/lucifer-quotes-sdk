@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:quote():list() / client:quote():load({ id = ... })
-function LuciferQuotesSDK:quote(data)
+-- Idiomatic facade: client:Quote():list() / client:Quote():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function LuciferQuotesSDK:Quote(data)
   local EntityMod = require("entity.quote_entity")
   if data == nil then
     if self._quote == nil then
@@ -253,12 +254,6 @@ function LuciferQuotesSDK:quote(data)
     end
     return self._quote
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:quote() instead.
-function LuciferQuotesSDK:Quote(data)
-  local EntityMod = require("entity.quote_entity")
   return EntityMod.new(self, data)
 end
 

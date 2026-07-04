@@ -33,10 +33,12 @@ client = LuciferQuotesSDK()
 
 ### 3. Load a quote
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.quote.load({"id": "example_id"})
-    print(result)
+    quote = client.Quote().load({"id": "example_id"})
+    print(quote)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = LuciferQuotesSDK.test()
 
-result = client.quote.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+quote = client.Quote().load({"id": "test01"})
+# quote contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -221,7 +224,7 @@ API path: `/api/quotes`
 
 ### Quote
 
-Create an instance: `const quote = client.quote`
+Create an instance: `quote = client.Quote()`
 
 #### Operations
 
@@ -240,8 +243,8 @@ Create an instance: `const quote = client.quote`
 
 #### Example: Load
 
-```ts
-const quote = await client.quote.load({ id: 'quote_id' })
+```python
+quote = client.Quote().load({"id": "quote_id"})
 ```
 
 
@@ -315,7 +318,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-quote = client.quote
+quote = client.Quote()
 quote.load({"id": "example_id"})
 
 # quote.data_get() now returns the loaded quote data

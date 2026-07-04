@@ -26,9 +26,9 @@ import { LuciferQuotesSDK } from '@voxgig-sdk/lucifer-quotes'
 
 const client = new LuciferQuotesSDK()
 
-// Load quote data
-const quote = await client.quote.load({})
-console.log(quote.data)
+// Load quote data (returns a Quote)
+const quote = await client.Quote().load()
+console.log(quote)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from luciferquotes_sdk import LuciferQuotesSDK
 client = LuciferQuotesSDK()
 
 
-# Load a specific quote
-quote = client.quote.load({"id": "example_id"})
+# Load a specific quote (returns the record, raises on error)
+quote = client.Quote().load({"id": "example_id"})
 print(quote)
 ```
 
@@ -98,8 +98,8 @@ require_once 'luciferquotes_sdk.php';
 $client = new LuciferQuotesSDK();
 
 
-// Load a specific quote
-$quote = $client->quote()->load(["id" => "example_id"]);
+// Load a specific quote (returns the bare record; throws on error)
+$quote = $client->Quote()->load(["id" => "example_id"]);
 print_r($quote);
 ```
 
@@ -123,8 +123,8 @@ require_relative "LuciferQuotes_sdk"
 client = LuciferQuotesSDK.new
 
 
-# Load a specific quote
-quote = client.quote.load({ "id" => "example_id" })
+# Load a specific quote (returns the bare record; raises on error)
+quote = client.Quote.load({ "id" => "example_id" })
 puts quote
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific quote
-local quote, err = client:quote():load({ id = "example_id" })
+local quote, err = client:Quote():load({ id = "example_id" })
 print(quote)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = LuciferQuotesSDK.test()
-const result = await client.quote.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const quote = await client.Quote().load({ id: 'test01' })
+// quote is a bare Quote populated with mock data
+console.log(quote)
 ```
 
 ### Python
 
 ```python
 client = LuciferQuotesSDK.test()
-result = client.quote.load({"id": "test01"})
+quote = client.Quote().load({"id": "test01"})
+print(quote)
 ```
 
 ### PHP
 
 ```php
-$client = LuciferQuotesSDK::test();
-$result = $client->quote()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = LuciferQuotesSDK::test([
+    "entity" => ["quote" => ["test01" => ["id" => "test01"]]],
+]);
+$quote = $client->Quote()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.Quote(nil).Load(
 ### Ruby
 
 ```ruby
-client = LuciferQuotesSDK.test
-result = client.quote.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = LuciferQuotesSDK.test({
+  "entity" => { "quote" => { "test01" => { "id" => "test01" } } },
+})
+quote = client.Quote.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:quote():load({ id = "test01" })
+local result, err = client:Quote():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 
