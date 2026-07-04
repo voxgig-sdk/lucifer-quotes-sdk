@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -84,7 +83,7 @@ same parameters as `direct()`.
 ## QuoteEntity
 
 ```lua
-local quote = client:Quote(nil)
+local quote = client:quote(nil)
 ```
 
 ### Fields
@@ -103,7 +102,7 @@ local quote = client:Quote(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Quote():load({ id = "quote_id" })
+local result, err = client:quote():load({ id = "quote_id" })
 ```
 
 ### Common Methods

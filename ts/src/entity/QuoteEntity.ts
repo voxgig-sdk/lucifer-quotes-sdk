@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Quote,
+  QuoteLoadMatch,
+} from '../LuciferQuotesTypes'
 
 // TODO: needs Entity superclass
-class QuoteEntity extends LuciferQuotesEntityBase {
+class QuoteEntity extends LuciferQuotesEntityBase<Quote> {
 
   constructor(client: LuciferQuotesSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class QuoteEntity extends LuciferQuotesEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: QuoteLoadMatch, ctrl?: Control): Promise<Quote> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class QuoteEntity extends LuciferQuotesEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Quote> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

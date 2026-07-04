@@ -49,8 +49,7 @@ class TestQuoteEntity:
         # LOAD
         quote_ref01_ent = client.Quote(None)
         quote_ref01_match_dt0 = {}
-        quote_ref01_data_dt0_loaded, err = quote_ref01_ent.load(quote_ref01_match_dt0, None)
-        assert err is None
+        quote_ref01_data_dt0_loaded = quote_ref01_ent.load(quote_ref01_match_dt0, None)
         assert quote_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _quote_basic_setup(extra):
         "LUCIFERQUOTES_TEST_QUOTE_ENTID": idmap,
         "LUCIFERQUOTES_TEST_LIVE": "FALSE",
         "LUCIFERQUOTES_TEST_EXPLAIN": "FALSE",
-        "LUCIFERQUOTES_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _quote_basic_setup(extra):
     if env.get("LUCIFERQUOTES_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("LUCIFERQUOTES_APIKEY"),
             },
             extra or {},
         ])

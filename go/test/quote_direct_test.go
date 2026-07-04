@@ -99,14 +99,12 @@ func quoteDirectSetup(mockres any) *quoteDirectSetupResult {
 	env := envOverride(map[string]any{
 		"LUCIFERQUOTES_TEST_QUOTE_ENTID": map[string]any{},
 		"LUCIFERQUOTES_TEST_LIVE":    "FALSE",
-		"LUCIFERQUOTES_APIKEY":       "NONE",
 	})
 
 	live := env["LUCIFERQUOTES_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["LUCIFERQUOTES_APIKEY"],
 		}
 		client := sdk.NewLuciferQuotesSDK(mergedOpts)
 

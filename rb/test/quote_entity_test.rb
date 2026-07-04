@@ -42,8 +42,7 @@ class QuoteEntityTest < Minitest::Test
     # LOAD
     quote_ref01_ent = client.Quote(nil)
     quote_ref01_match_dt0 = {}
-    quote_ref01_data_dt0_loaded, err = quote_ref01_ent.load(quote_ref01_match_dt0, nil)
-    assert_nil err
+    quote_ref01_data_dt0_loaded = quote_ref01_ent.load(quote_ref01_match_dt0, nil)
     assert !quote_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def quote_basic_setup(extra)
     "LUCIFERQUOTES_TEST_QUOTE_ENTID" => idmap,
     "LUCIFERQUOTES_TEST_LIVE" => "FALSE",
     "LUCIFERQUOTES_TEST_EXPLAIN" => "FALSE",
-    "LUCIFERQUOTES_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def quote_basic_setup(extra)
   if env["LUCIFERQUOTES_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["LUCIFERQUOTES_APIKEY"],
       },
       extra || {},
     ])

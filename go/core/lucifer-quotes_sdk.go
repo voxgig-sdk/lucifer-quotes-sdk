@@ -245,6 +245,9 @@ func (sdk *LuciferQuotesSDK) Direct(fetchargs map[string]any) (map[string]any, e
 }
 
 
+// Quote returns a Quote entity bound to this client.
+// Idiomatic usage: client.Quote(nil).List(nil, nil) or
+// client.Quote(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *LuciferQuotesSDK) Quote(data map[string]any) LuciferQuotesEntity {
 	return NewQuoteEntityFunc(sdk, data)
 }
