@@ -8,7 +8,7 @@ Complete API reference for the LuciferQuotes PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/lucifer-quotes_sdk.php';
+require_once __DIR__ . '/luciferquotes_sdk.php';
 
 $client = new LuciferQuotesSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = LuciferQuotesSDK::test();
 
 Create a new `QuoteEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): LuciferQuotesUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,10 +92,10 @@ $quote = $client->Quote();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$STRING`` | No |  |
-| `episode` | ``$STRING`` | No |  |
-| `quote` | ``$STRING`` | No |  |
-| `season` | ``$STRING`` | No |  |
+| `author` | `string` | No |  |
+| `episode` | `string` | No |  |
+| `quote` | `string` | No |  |
+| `season` | `string` | No |  |
 
 ### Operations
 
@@ -104,24 +104,24 @@ $quote = $client->Quote();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Quote()->load(["id" => "quote_id"]);
+$result = $client->Quote()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -130,7 +130,7 @@ Set the entity match criteria.
 Create a new `QuoteEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

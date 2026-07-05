@@ -21,7 +21,7 @@ class Quote
     public ?string $season = null;
 }
 
-/** Match filter for Quote#load (any subset of Quote fields). */
+/** Request payload for Quote#load. */
 class QuoteLoadMatch
 {
     public ?string $author = null;

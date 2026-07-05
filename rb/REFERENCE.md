@@ -8,7 +8,7 @@ Complete API reference for the LuciferQuotes Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'lucifer-quotes_sdk'
+require_relative 'LuciferQuotes_sdk'
 
 client = LuciferQuotesSDK.new(options)
 ```
@@ -93,10 +93,10 @@ quote = client.Quote
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$STRING`` | No |  |
-| `episode` | ``$STRING`` | No |  |
-| `quote` | ``$STRING`` | No |  |
-| `season` | ``$STRING`` | No |  |
+| `author` | `String` | No |  |
+| `episode` | `String` | No |  |
+| `quote` | `String` | No |  |
+| `season` | `String` | No |  |
 
 ### Operations
 
@@ -105,7 +105,7 @@ quote = client.Quote
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Quote.load({ "id" => "quote_id" })
+result = client.Quote.load()
 ```
 
 ### Common Methods

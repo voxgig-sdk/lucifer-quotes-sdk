@@ -12,5 +12,10 @@ export interface Quote {
   season?: string
 }
 
-export type QuoteLoadMatch = Partial<Quote>
+export interface QuoteLoadMatch {
+  author?: string
+  episode?: string
+  quote?: string
+  season?: string
+}
 

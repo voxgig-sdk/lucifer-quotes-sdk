@@ -8,7 +8,7 @@ Complete API reference for the LuciferQuotes Python SDK.
 ### Constructor
 
 ```python
-from lucifer-quotes_sdk import LuciferQuotesSDK
+from luciferquotes_sdk import LuciferQuotesSDK
 
 client = LuciferQuotesSDK(options)
 ```
@@ -87,10 +87,10 @@ quote = client.Quote()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$STRING`` | No |  |
-| `episode` | ``$STRING`` | No |  |
-| `quote` | ``$STRING`` | No |  |
-| `season` | ``$STRING`` | No |  |
+| `author` | `str` | No |  |
+| `episode` | `str` | No |  |
+| `quote` | `str` | No |  |
+| `season` | `str` | No |  |
 
 ### Operations
 
@@ -99,7 +99,7 @@ quote = client.Quote()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Quote().load({"id": "quote_id"})
+result = client.Quote().load()
 ```
 
 ### Common Methods
