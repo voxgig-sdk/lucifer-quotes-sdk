@@ -91,6 +91,7 @@ same parameters as `Direct()`.
 
 ```go
 quote := client.Quote(nil)
+fmt.Println(quote.GetName()) // "quote"
 ```
 
 ### Fields
@@ -110,6 +111,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Quote(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

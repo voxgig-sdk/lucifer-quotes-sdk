@@ -16,9 +16,9 @@ main: {
           url: "https://lucifer-quotes.vercel.app"
         }
       ]
+      summary: "This API provides random quotes from the character Lucifer Morningstar and other show characters."
       title: "Lucifer Quotes API"
       version: "1.0.0"
+      website: "https://lucifer-quotes.vercel.app"
     }
   }
-}
-

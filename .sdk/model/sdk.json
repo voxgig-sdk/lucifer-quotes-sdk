@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -230,14 +227,17 @@
           "url": "https://lucifer-quotes.vercel.app/"
         },
         "description": "This API provides random quotes from the character Lucifer Morningstar and other show characters. You can retrieve a single quote or multiple quotes by specifying a number in the API request.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://lucifer-quotes.vercel.app"
           }
         ],
+        "summary": "This API provides random quotes from the character Lucifer Morningstar and other show characters.",
         "title": "Lucifer Quotes API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://lucifer-quotes.vercel.app"
       },
       "option": {},
       "target": {
@@ -290,6 +290,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -340,6 +343,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
