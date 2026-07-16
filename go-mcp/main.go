@@ -37,7 +37,20 @@ func main() {
 	addr := flag.String("addr", ":8080", "listen address for http transport")
 	flag.Parse()
 
-	client := sdk.NewLuciferQuotesSDK(nil)
+	// Configure from the environment: LUCIFER_QUOTES_APIKEY carries the API key and
+	// LUCIFER_QUOTES_BASE optionally overrides the API base URL (e.g. production).
+	// Both injectable by a secrets vault. Unset -> nil config defaults.
+	var opts map[string]any
+	if apikey := os.Getenv("LUCIFER_QUOTES_APIKEY"); apikey != "" {
+		opts = map[string]any{"apikey": apikey}
+	}
+	if base := os.Getenv("LUCIFER_QUOTES_BASE"); base != "" {
+		if opts == nil {
+			opts = map[string]any{}
+		}
+		opts["base"] = base
+	}
+	client := sdk.NewLuciferQuotesSDK(opts)
 	server := mcp.NewServer(
 		&mcp.Implementation{
 			Name:    "lucifer-quotes",
