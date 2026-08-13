@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ LuciferQuotesUtility.registrar = ->(u) {
   u.prepare_params = LuciferQuotesUtilities::PrepareParams
   u.prepare_path = LuciferQuotesUtilities::PreparePath
   u.prepare_query = LuciferQuotesUtilities::PrepareQuery
+  u.graphql_body = LuciferQuotesUtilities::GraphqlBody
+  u.graphql_errors = LuciferQuotesUtilities::GraphqlErrors
   u.result_basic = LuciferQuotesUtilities::ResultBasic
   u.result_body = LuciferQuotesUtilities::ResultBody
   u.result_headers = LuciferQuotesUtilities::ResultHeaders

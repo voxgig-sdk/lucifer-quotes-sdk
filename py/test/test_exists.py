@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# LuciferQuotes SDK exists test
 
 import pytest
 from luciferquotes_sdk import LuciferQuotesSDK

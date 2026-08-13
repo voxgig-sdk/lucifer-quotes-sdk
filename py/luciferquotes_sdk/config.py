@@ -1,0 +1,105 @@
+# LuciferQuotes SDK configuration
+
+
+def make_config():
+    return {
+        "main": {
+            "name": "LuciferQuotes",
+        },
+        "feature": {
+            "test": {
+        "options": {
+          "active": False,
+        },
+      },
+        },
+        "options": {
+            "base": "https://lucifer-quotes.vercel.app",
+            "headers": {
+        "content-type": "application/json",
+      },
+            "entity": {
+                "quote": {},
+            },
+        },
+        "entity": {
+      "quote": {
+        "fields": [
+          {
+            "active": True,
+            "name": "author",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 0,
+          },
+          {
+            "active": True,
+            "name": "episode",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 1,
+          },
+          {
+            "active": True,
+            "name": "quote",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 2,
+          },
+          {
+            "active": True,
+            "name": "season",
+            "req": False,
+            "type": "`$STRING`",
+            "index$": 3,
+          },
+        ],
+        "name": "quote",
+        "op": {
+          "load": {
+            "input": "data",
+            "name": "load",
+            "points": [
+              {
+                "active": True,
+                "args": {
+                  "query": [
+                    {
+                      "active": True,
+                      "example": 1,
+                      "kind": "query",
+                      "name": "number",
+                      "orig": "number",
+                      "reqd": False,
+                      "type": "`$INTEGER`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/api/quotes",
+                "parts": [
+                  "api",
+                  "quotes",
+                ],
+                "select": {
+                  "exist": [
+                    "number",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "index$": 0,
+              },
+            ],
+            "key$": "load",
+          },
+        },
+        "relations": {
+          "ancestors": [],
+        },
+      },
+    },
+    }

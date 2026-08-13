@@ -75,6 +75,7 @@ module LuciferQuotesConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/quotes",
                   "parts" => [

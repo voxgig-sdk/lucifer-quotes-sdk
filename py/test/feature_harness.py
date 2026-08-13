@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import LuciferQuotesControl
-from core.error import LuciferQuotesError
-from core.result import LuciferQuotesResult
-from core.spec import LuciferQuotesSpec
+from luciferquotes_sdk.config import make_config
+from luciferquotes_sdk.features import _make_feature
+from luciferquotes_sdk.core.control import LuciferQuotesControl
+from luciferquotes_sdk.core.error import LuciferQuotesError
+from luciferquotes_sdk.core.result import LuciferQuotesResult
+from luciferquotes_sdk.core.spec import LuciferQuotesSpec
 
 
 # True when this SDK was generated with the named feature.

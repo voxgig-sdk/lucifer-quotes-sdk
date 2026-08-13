@@ -43,8 +43,8 @@ class LuciferQuotesTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('LUCIFERQUOTES_TEST_LIVE');
-        $override = self::getenv('LUCIFERQUOTES_TEST_OVERRIDE');
+        $live = self::getenv('LUCIFER_QUOTES_TEST_LIVE');
+        $override = self::getenv('LUCIFER_QUOTES_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class LuciferQuotesTestRunner
             }
         }
 
-        $explain = self::getenv('LUCIFERQUOTES_TEST_EXPLAIN');
+        $explain = self::getenv('LUCIFER_QUOTES_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['LUCIFERQUOTES_TEST_EXPLAIN'] = $explain;
+            $m['LUCIFER_QUOTES_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

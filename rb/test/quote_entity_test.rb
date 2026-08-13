@@ -26,7 +26,7 @@ class QuoteEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set LUCIFERQUOTES_TEST_QUOTE_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set LUCIFER_QUOTES_TEST_QUOTE_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -74,22 +74,22 @@ def quote_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["LUCIFERQUOTES_TEST_QUOTE_ENTID"]
+  entid_env_raw = ENV["LUCIFER_QUOTES_TEST_QUOTE_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "LUCIFERQUOTES_TEST_QUOTE_ENTID" => idmap,
-    "LUCIFERQUOTES_TEST_LIVE" => "FALSE",
-    "LUCIFERQUOTES_TEST_EXPLAIN" => "FALSE",
+    "LUCIFER_QUOTES_TEST_QUOTE_ENTID" => idmap,
+    "LUCIFER_QUOTES_TEST_LIVE" => "FALSE",
+    "LUCIFER_QUOTES_TEST_EXPLAIN" => "FALSE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["LUCIFERQUOTES_TEST_QUOTE_ENTID"])
+    env["LUCIFER_QUOTES_TEST_QUOTE_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["LUCIFERQUOTES_TEST_LIVE"] == "TRUE"
+  if env["LUCIFER_QUOTES_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
       },
@@ -98,13 +98,13 @@ def quote_basic_setup(extra)
     client = LuciferQuotesSDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["LUCIFERQUOTES_TEST_LIVE"] == "TRUE"
+  live = env["LUCIFER_QUOTES_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["LUCIFERQUOTES_TEST_EXPLAIN"] == "TRUE",
+    explain: env["LUCIFER_QUOTES_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

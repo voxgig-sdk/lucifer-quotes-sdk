@@ -23,8 +23,8 @@ module LuciferQuotesTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("LUCIFERQUOTES_TEST_LIVE")
-    override = getenv("LUCIFERQUOTES_TEST_OVERRIDE")
+    live = getenv("LUCIFER_QUOTES_TEST_LIVE")
+    override = getenv("LUCIFER_QUOTES_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module LuciferQuotesTestRunner
       end
     end
 
-    explain = getenv("LUCIFERQUOTES_TEST_EXPLAIN")
-    m["LUCIFERQUOTES_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("LUCIFER_QUOTES_TEST_EXPLAIN")
+    m["LUCIFER_QUOTES_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import LuciferQuotesSDK
-from core.error import LuciferQuotesError
-from core.result import LuciferQuotesResult
-from core.response import LuciferQuotesResponse
-from core.spec import LuciferQuotesSpec
-from feature.base_feature import LuciferQuotesBaseFeature
+from projectname_sdk.core.error import LuciferQuotesError
+from projectname_sdk.core.result import LuciferQuotesResult
+from projectname_sdk.core.response import LuciferQuotesResponse
+from projectname_sdk.core.spec import LuciferQuotesSpec
+from projectname_sdk.feature.base_feature import LuciferQuotesBaseFeature
 
 
 def _client():

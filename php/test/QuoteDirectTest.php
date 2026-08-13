@@ -65,11 +65,11 @@ function quote_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "LUCIFERQUOTES_TEST_QUOTE_ENTID" => [],
-        "LUCIFERQUOTES_TEST_LIVE" => "FALSE",
+        "LUCIFER_QUOTES_TEST_QUOTE_ENTID" => [],
+        "LUCIFER_QUOTES_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["LUCIFERQUOTES_TEST_LIVE"] === "TRUE";
+    $live = $env["LUCIFER_QUOTES_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

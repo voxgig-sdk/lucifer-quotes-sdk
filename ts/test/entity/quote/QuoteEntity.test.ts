@@ -26,8 +26,8 @@ import {
 describe('QuoteEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when LUCIFERQUOTES_TEST_LIVE=TRUE.
-  afterEach(liveDelay('LUCIFERQUOTES_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when LUCIFER_QUOTES_TEST_LIVE=TRUE.
+  afterEach(liveDelay('LUCIFER_QUOTES_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = LuciferQuotesSDK.test()
@@ -62,7 +62,7 @@ describe('QuoteEntity', async () => {
     // LOAD
     const quote_ref01_ent = client.Quote()
     const quote_ref01_match_dt0: any = {}
-    const quote_ref01_data_dt0 = await quote_ref01_ent.load(quote_ref01_match_dt0)
+    const quote_ref01_data_dt0 = (await quote_ref01_ent.load(quote_ref01_match_dt0)).data()
     assert(null != quote_ref01_data_dt0)
 
 

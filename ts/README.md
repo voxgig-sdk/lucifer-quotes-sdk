@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = LuciferQuotesSDK.test()
 
 const quote = await client.Quote().load()
-// quote is a bare entity populated with mock response data
+// quote is the entity, populated with mock response data
+// — call quote.data() for the record itself
 console.log(quote)
 ```
 
