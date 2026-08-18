@@ -15,7 +15,7 @@ require_relative "../LuciferQuotes_sdk"
 module LuciferQuotesFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = LuciferQuotesConfig.make_config["feature"]
+    f = LuciferQuotesConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

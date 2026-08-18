@@ -28,7 +28,7 @@ class LuciferQuotesSDK
     utility = LuciferQuotesUtility.new
     @_utility = utility
 
-    config = LuciferQuotesConfig.make_config
+    config = LuciferQuotesConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

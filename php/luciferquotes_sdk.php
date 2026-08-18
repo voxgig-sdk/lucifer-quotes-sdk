@@ -40,7 +40,7 @@ class LuciferQuotesSDK
         $utility = new LuciferQuotesUtility();
         $this->_utility = $utility;
 
-        $config = LuciferQuotesConfig::make_config();
+        $config = LuciferQuotesConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
