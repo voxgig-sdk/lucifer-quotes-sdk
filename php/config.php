@@ -33,6 +33,9 @@ class LuciferQuotesConfig
         return [
             "main" => [
                 "name" => "LuciferQuotes",
+                "slug" => "lucifer-quotes",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [

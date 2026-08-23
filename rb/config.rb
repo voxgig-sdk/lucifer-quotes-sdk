@@ -19,6 +19,9 @@ module LuciferQuotesConfig
     {
       "main" => {
         "name" => "LuciferQuotes",
+        "slug" => "lucifer-quotes",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
