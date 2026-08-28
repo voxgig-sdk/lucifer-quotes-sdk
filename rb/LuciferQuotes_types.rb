@@ -31,22 +31,10 @@ Quote = Struct.new(
 
 # Request payload for Quote#load.
 #
-# @!attribute [rw] author
-#   @return [String, nil]
-#
-# @!attribute [rw] episode
-#   @return [String, nil]
-#
-# @!attribute [rw] quote
-#   @return [String, nil]
-#
-# @!attribute [rw] season
-#   @return [String, nil]
+# @!attribute [rw] number
+#   @return [Integer, nil]
 QuoteLoadMatch = Struct.new(
-  :author,
-  :episode,
-  :quote,
-  :season,
+  :number,
   keyword_init: true
 )
 

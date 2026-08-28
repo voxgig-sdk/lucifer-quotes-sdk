@@ -24,7 +24,4 @@ class Quote(TypedDict, total=False):
 
 
 class QuoteLoadMatch(TypedDict, total=False):
-    author: str
-    episode: str
-    quote: str
-    season: str
+    number: int

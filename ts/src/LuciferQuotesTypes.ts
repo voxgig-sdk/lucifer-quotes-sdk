@@ -13,9 +13,6 @@ export interface Quote {
 }
 
 export interface QuoteLoadMatch {
-  author?: string
-  episode?: string
-  quote?: string
-  season?: string
+  number?: number
 }
 

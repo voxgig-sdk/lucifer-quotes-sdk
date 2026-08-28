@@ -24,9 +24,6 @@ class Quote
 /** Request payload for Quote#load. */
 class QuoteLoadMatch
 {
-    public ?string $author = null;
-    public ?string $episode = null;
-    public ?string $quote = null;
-    public ?string $season = null;
+    public ?int $number = null;
 }
 

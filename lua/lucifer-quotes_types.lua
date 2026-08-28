@@ -13,10 +13,7 @@
 ---@field season? string
 
 ---@class QuoteLoadMatch
----@field author? string
----@field episode? string
----@field quote? string
----@field season? string
+---@field number? number
 
 local M = {}
 
