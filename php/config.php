@@ -95,9 +95,13 @@ class LuciferQuotesConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/quotes',
-                  'parts' => [
-                    'api',
-                    'quotes',
+                  'segments' => [
+                    [
+                      'lit' => 'api',
+                    ],
+                    [
+                      'lit' => 'quotes',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -107,6 +111,10 @@ class LuciferQuotesConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'api',
+                    'quotes',
                   ],
                 ],
               ],

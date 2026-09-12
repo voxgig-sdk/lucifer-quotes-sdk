@@ -47,9 +47,13 @@ main: kit: entity: quote: {
           }
           method: "GET"
           orig: "/api/quotes"
-          parts: [
-            "api"
-            "quotes"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "quotes"
+            }
           ]
           select: {
             exist: [

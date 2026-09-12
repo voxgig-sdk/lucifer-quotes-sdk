@@ -69,9 +69,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/quotes",
-                ["parts"] = {
-                  "api",
-                  "quotes",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "quotes",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -81,6 +85,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "api",
+                  "quotes",
                 },
               },
             },

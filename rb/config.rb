@@ -81,9 +81,13 @@ module LuciferQuotesConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/quotes",
-                  "parts" => [
-                    "api",
-                    "quotes",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "quotes",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -94,6 +98,10 @@ module LuciferQuotesConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "quotes",
+                  ],
                 },
               ],
             },
