@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { LuciferQuotesSDK } from '@voxgig-sdk/lucifer-quotes'
+import { LuciferQuotesSDK } from '@voxgig-sdk/lucifer-quotes-sdk'
 
 const client = new LuciferQuotesSDK()
 ```
@@ -407,7 +407,7 @@ lucifer-quotes/
 Import the SDK from the package root:
 
 ```ts
-import { LuciferQuotesSDK } from '@voxgig-sdk/lucifer-quotes'
+import { LuciferQuotesSDK } from '@voxgig-sdk/lucifer-quotes-sdk'
 ```
 
 ### Entity state

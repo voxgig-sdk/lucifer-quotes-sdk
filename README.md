@@ -105,7 +105,7 @@ local result, err = client:Quote():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/lucifer-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lucifer-quotes-sdk/releases) |
+| TypeScript | `@voxgig-sdk/lucifer-quotes-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lucifer-quotes-sdk/releases) |
 | Python | `voxgig-sdk-lucifer-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lucifer-quotes-sdk/releases) |
 | PHP | `voxgig-sdk/lucifer-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lucifer-quotes-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/lucifer-quotes-sdk/go` | `go get github.com/voxgig-sdk/lucifer-quotes-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Quote():load()
 ### TypeScript
 
 ```ts
-import { LuciferQuotesSDK } from '@voxgig-sdk/lucifer-quotes'
+import { LuciferQuotesSDK } from '@voxgig-sdk/lucifer-quotes-sdk'
 
 const client = new LuciferQuotesSDK()
 
