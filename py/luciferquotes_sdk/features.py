@@ -1,12 +1,18 @@
 # LuciferQuotes SDK feature factory
 
 from luciferquotes_sdk.feature.base_feature import LuciferQuotesBaseFeature
+from luciferquotes_sdk.feature.ratelimit_feature import LuciferQuotesRatelimitFeature
+from luciferquotes_sdk.feature.retry_feature import LuciferQuotesRetryFeature
 from luciferquotes_sdk.feature.test_feature import LuciferQuotesTestFeature
+from luciferquotes_sdk.feature.timeout_feature import LuciferQuotesTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: LuciferQuotesBaseFeature(),
+    "ratelimit": lambda: LuciferQuotesRatelimitFeature(),
+    "retry": lambda: LuciferQuotesRetryFeature(),
     "test": lambda: LuciferQuotesTestFeature(),
+    "timeout": lambda: LuciferQuotesTimeoutFeature(),
 }
 
 

@@ -33,5 +33,166 @@
         "season": "sa3"
       }
     }
+  },
+  "requests": {
+    "GET /api/quotes": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getQuotes",
+        "parameters": [
+          {
+            "description": "The number of random quotes to retrieve",
+            "in": "query",
+            "name": "number",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "multipleQuotes": {
+                    "summary": "Multiple quotes response",
+                    "value": [
+                      {
+                        "author": "Lucifer Morningstar",
+                        "episode": "1",
+                        "quote": "I'm like walking heroin. Very habit forming. It never ends well.",
+                        "season": "1"
+                      },
+                      {
+                        "author": "Lucifer Morningstar",
+                        "episode": "2",
+                        "quote": "Detective! What a lovely surprise.",
+                        "season": "1"
+                      }
+                    ]
+                  },
+                  "singleQuote": {
+                    "summary": "Single quote response",
+                    "value": {
+                      "author": "Lucifer Morningstar",
+                      "episode": "1",
+                      "quote": "I'm like walking heroin. Very habit forming. It never ends well.",
+                      "season": "1"
+                    }
+                  }
+                },
+                "schema": {
+                  "oneOf": [
+                    {
+                      "allOf": [
+                        {
+                          "properties": {
+                            "author": {
+                              "description": "The character who said the quote",
+                              "type": "string"
+                            },
+                            "episode": {
+                              "description": "The episode number where the quote appears",
+                              "type": "string"
+                            },
+                            "quote": {
+                              "description": "The quote text",
+                              "type": "string"
+                            },
+                            "season": {
+                              "description": "The season number where the quote appears",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "quote",
+                            "author"
+                          ],
+                          "type": "object"
+                        }
+                      ]
+                    },
+                    {
+                      "items": {
+                        "properties": {
+                          "author": {
+                            "description": "The character who said the quote",
+                            "type": "string"
+                          },
+                          "episode": {
+                            "description": "The episode number where the quote appears",
+                            "type": "string"
+                          },
+                          "quote": {
+                            "description": "The quote text",
+                            "type": "string"
+                          },
+                          "season": {
+                            "description": "The season number where the quote appears",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "quote",
+                          "author"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Successful response with quote(s)"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request - invalid parameters"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

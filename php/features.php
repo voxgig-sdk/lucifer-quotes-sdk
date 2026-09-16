@@ -4,7 +4,10 @@ declare(strict_types=1);
 // LuciferQuotes SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class LuciferQuotesFeatures
@@ -14,8 +17,14 @@ class LuciferQuotesFeatures
         switch ($name) {
             case "base":
                 return new LuciferQuotesBaseFeature();
+            case "ratelimit":
+                return new LuciferQuotesRatelimitFeature();
+            case "retry":
+                return new LuciferQuotesRetryFeature();
             case "test":
                 return new LuciferQuotesTestFeature();
+            case "timeout":
+                return new LuciferQuotesTimeoutFeature();
             default:
                 return new LuciferQuotesBaseFeature();
         }
@@ -31,7 +40,10 @@ class LuciferQuotesFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
