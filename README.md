@@ -105,12 +105,12 @@ local result, err = client:Quote():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/lucifer-quotes-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lucifer-quotes-sdk/releases) |
-| Python | `voxgig-sdk-lucifer-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lucifer-quotes-sdk/releases) |
-| PHP | `voxgig-sdk/lucifer-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lucifer-quotes-sdk/releases) |
+| TypeScript | `@voxgig-sdk/lucifer-quotes-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lucifer-quotes-sdk/tags) |
+| Python | `voxgig-sdk-lucifer-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lucifer-quotes-sdk/tags) |
+| PHP | `voxgig-sdk/lucifer-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lucifer-quotes-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/lucifer-quotes-sdk/go` | `go get github.com/voxgig-sdk/lucifer-quotes-sdk/go@latest` |
-| Ruby | `voxgig-sdk-lucifer-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lucifer-quotes-sdk/releases) |
-| Lua | `voxgig-sdk-lucifer-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lucifer-quotes-sdk/releases) |
+| Ruby | `voxgig-sdk-lucifer-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lucifer-quotes-sdk/tags) |
+| Lua | `voxgig-sdk-lucifer-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/lucifer-quotes-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/lucifer-quotes-sdk/go-cli` | `go install github.com/voxgig-sdk/lucifer-quotes-sdk/go-cli/cmd/lucifer-quotes@latest` |
 | Go MCP server | `github.com/voxgig-sdk/lucifer-quotes-sdk/go-mcp` | `go get github.com/voxgig-sdk/lucifer-quotes-sdk/go-mcp@latest` |
 
