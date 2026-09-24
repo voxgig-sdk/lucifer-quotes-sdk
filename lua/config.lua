@@ -87,18 +87,22 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "author",
+            ["title"] = "Author",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "episode",
+            ["title"] = "Episode",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "quote",
+            ["title"] = "Quote",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "season",
+            ["title"] = "Season",
             ["type"] = "`$STRING`",
           },
         },
@@ -109,17 +113,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["example"] = 1,
-                      ["kind"] = "query",
-                      ["name"] = "number",
-                      ["orig"] = "number",
-                      ["type"] = "`$INTEGER`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/quotes",
@@ -131,18 +124,30 @@ local function make_config()
                     ["lit"] = "quotes",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "number",
-                  },
+                ["parts"] = {
+                  "api",
+                  "quotes",
                 },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "api",
-                  "quotes",
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "number",
+                      ["orig"] = "number",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                      ["example"] = 1,
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "number",
+                  },
                 },
               },
             },

@@ -1,0 +1,83 @@
+# Entity: quote
+
+main: kit: entity: quote: {
+
+  alias: field: {}
+
+  fields: {
+    author: {
+      h: "Author"
+      n: "author"
+      r: false
+      t: "`$STRING`"
+    }
+    episode: {
+      h: "Episode"
+      n: "episode"
+      r: false
+      t: "`$STRING`"
+    }
+    quote: {
+      h: "Quote"
+      n: "quote"
+      r: false
+      t: "`$STRING`"
+    }
+    season: {
+      h: "Season"
+      n: "season"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  name: "quote"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/quotes"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 1
+                k: "query"
+                n: "number"
+                or: "number"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/quotes"
+          q: {
+            exist: [
+              "number"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "quotes"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

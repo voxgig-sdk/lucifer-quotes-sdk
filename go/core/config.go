@@ -91,18 +91,22 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "author",
+						"title": "Author",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "episode",
+						"title": "Episode",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "quote",
+						"title": "Quote",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "season",
+						"title": "Season",
 						"type": "`$STRING`",
 					},
 				},
@@ -113,17 +117,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": 1,
-											"kind": "query",
-											"name": "number",
-											"orig": "number",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/quotes",
@@ -135,18 +128,30 @@ func MakeConfig() map[string]any {
 										"lit": "quotes",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"number",
-									},
+								"parts": []any{
+									"api",
+									"quotes",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"api",
-									"quotes",
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "number",
+											"orig": "number",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 1,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"number",
+									},
 								},
 							},
 						},

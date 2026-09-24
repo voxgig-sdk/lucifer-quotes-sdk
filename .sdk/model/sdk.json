@@ -24,38 +24,108 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "quote": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "author",
-              "req": false,
-              "type": "`$STRING`"
+          "fields": {
+            "author": {
+              "a": true,
+              "h": "Author",
+              "n": "author",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "episode",
-              "req": false,
-              "type": "`$STRING`"
+            "episode": {
+              "a": true,
+              "h": "Episode",
+              "n": "episode",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "quote",
-              "req": false,
-              "type": "`$STRING`"
+            "quote": {
+              "a": true,
+              "h": "Quote",
+              "n": "quote",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "season",
-              "req": false,
-              "type": "`$STRING`"
+            "season": {
+              "a": true,
+              "h": "Season",
+              "n": "season",
+              "r": false,
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "quote",
           "op": {
             "load": {
@@ -63,30 +133,35 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/quotes",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": 1,
-                        "kind": "query",
-                        "name": "number",
-                        "orig": "number",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 1,
+                        "k": "query",
+                        "n": "number",
+                        "or": "number",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /api/quotes",
-                    "json": "{\"operationId\":\"getQuotes\",\"parameters\":[{\"description\":\"The number of random quotes to retrieve\",\"in\":\"query\",\"name\":\"number\",\"required\":false,\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"multipleQuotes\":{\"summary\":\"Multiple quotes response\",\"value\":[{\"author\":\"Lucifer Morningstar\",\"episode\":\"1\",\"quote\":\"I'm like walking heroin. Very habit forming. It never ends well.\",\"season\":\"1\"},{\"author\":\"Lucifer Morningstar\",\"episode\":\"2\",\"quote\":\"Detective! What a lovely surprise.\",\"season\":\"1\"}]},\"singleQuote\":{\"summary\":\"Single quote response\",\"value\":{\"author\":\"Lucifer Morningstar\",\"episode\":\"1\",\"quote\":\"I'm like walking heroin. Very habit forming. It never ends well.\",\"season\":\"1\"}}},\"schema\":{\"oneOf\":[{\"allOf\":[{\"properties\":{\"author\":{\"description\":\"The character who said the quote\",\"type\":\"string\"},\"episode\":{\"description\":\"The episode number where the quote appears\",\"type\":\"string\"},\"quote\":{\"description\":\"The quote text\",\"type\":\"string\"},\"season\":{\"description\":\"The season number where the quote appears\",\"type\":\"string\"}},\"required\":[\"quote\",\"author\"],\"type\":\"object\"}]},{\"items\":{\"properties\":{\"author\":{\"description\":\"The character who said the quote\",\"type\":\"string\"},\"episode\":{\"description\":\"The episode number where the quote appears\",\"type\":\"string\"},\"quote\":{\"description\":\"The quote text\",\"type\":\"string\"},\"season\":{\"description\":\"The season number where the quote appears\",\"type\":\"string\"}},\"required\":[\"quote\",\"author\"],\"type\":\"object\"},\"type\":\"array\"}]}}},\"description\":\"Successful response with quote(s)\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/quotes",
+                  "q": {
+                    "exist": [
+                      "number"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/quotes",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -94,12 +169,7 @@
                       "lit": "quotes"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "number"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -528,17 +598,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "quote_ref01",
                 "srcdatavar": "quote_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
