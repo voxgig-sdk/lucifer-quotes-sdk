@@ -1,5 +1,5 @@
 {
-  "name": "voxgig-sdk/lucifer-quotes",
+  "name": "voxgig-sdk/lucifer-quotes-sdk",
   "description": "Unofficial generated PHP SDK for the Lucifer Quotes public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
   "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "lucifer-quotes"],
