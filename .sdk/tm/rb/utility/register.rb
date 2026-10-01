@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 LuciferQuotesUtility.registrar = ->(u) {
   u.clean = LuciferQuotesUtilities::Clean
+  u.clean_add = LuciferQuotesUtilities::CleanAdd
+  u.clean_explain = LuciferQuotesUtilities::CleanExplain
   u.done = LuciferQuotesUtilities::Done
   u.make_error = LuciferQuotesUtilities::MakeError
   u.feature_add = LuciferQuotesUtilities::FeatureAdd

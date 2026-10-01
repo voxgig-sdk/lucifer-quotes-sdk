@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 LuciferQuotesUtility::setRegistrar(function (LuciferQuotesUtility $u): void {
     $u->clean = [LuciferQuotesClean::class, 'call'];
+    $u->clean_add = [LuciferQuotesClean::class, 'add'];
+    $u->clean_explain = [LuciferQuotesDone::class, 'clean_explain'];
     $u->done = [LuciferQuotesDone::class, 'call'];
     $u->make_error = [LuciferQuotesMakeError::class, 'call'];
     $u->feature_add = [LuciferQuotesFeatureAdd::class, 'call'];

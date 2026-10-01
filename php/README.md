@@ -12,9 +12,14 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `$
 
 ## Install
 This package is not yet published to Packagist. Install it from the
-GitHub release tag (`php/vX.Y.Z`):
+GitHub release tag (`php/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/lucifer-quotes-sdk/releases)), or
+from a clone as a Composer path repository:
 
-- Releases: [https://github.com/voxgig-sdk/lucifer-quotes-sdk/releases](https://github.com/voxgig-sdk/lucifer-quotes-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/lucifer-quotes-sdk
+composer config repositories.lucifer-quotes-sdk path ./lucifer-quotes-sdk/php
+composer require voxgig-sdk/lucifer-quotes-sdk:@dev
+```
 
 
 ## Tutorial: your first API call
