@@ -79,6 +79,7 @@ module LuciferQuotesConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -156,10 +157,10 @@ module LuciferQuotesConfig
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "number",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],

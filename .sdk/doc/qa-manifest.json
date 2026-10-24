@@ -3,5 +3,16 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Production server",
+      "Successful response with quote(s)",
+      "The character who said the quote",
+      "The episode number where the quote appears",
+      "The quote text",
+      "The season number where the quote appears",
+      "This API provides random quotes from the character Lucifer Morningstar and other show characters. You can retrieve a single quote or multiple quotes by specifying a number in the API request."
+    ]
+  }
 }

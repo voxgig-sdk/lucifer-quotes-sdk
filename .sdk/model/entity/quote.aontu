@@ -56,10 +56,9 @@ main: kit: entity: quote: {
           }
           m: "GET"
           o: "/api/quotes"
-          q: {
-            exist: [
-              "number"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

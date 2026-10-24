@@ -16,11 +16,21 @@ const PLAN = [
         "path": "/api/quotes",
         "args": [],
         "select": {
-            "number": "v1"
+            "number": 1
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "number"
+        ],
+        "queryArgs": [
+            {
+                "name": "number",
+                "wire": "number"
+            }
         ],
         "auth": null,
         "status": 200,
